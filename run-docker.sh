@@ -17,6 +17,7 @@ check_container=$(docker ps --all --format "{{.Names}}")
 if [[ ! $check_container == $CONTAINER ]]; then
 	echo "Creating new container..."
 	docker create \
+    -p 8080:8080 \
 		--interactive --tty \
 		--volume ${MOUNT_LOCATION}:/zphisher/auth/ \
 		--network host \
